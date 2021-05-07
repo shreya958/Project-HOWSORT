@@ -129,8 +129,8 @@ class _insertAlgoState extends State<insertAlgo> {
           alignment: Alignment.topCenter,
             
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(' Insertion Sort ',textAlign: TextAlign.center ,style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.purple), ),
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Insertion Sort ',textAlign: TextAlign.center ,style: TextStyle(fontFamily: 'Quantico',fontSize: 30, fontWeight: FontWeight.bold, color: Colors.purple), ),
             ),
           ),
           Text(' Definition ', textAlign: TextAlign.left, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold), ),

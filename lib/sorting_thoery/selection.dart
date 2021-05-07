@@ -141,7 +141,7 @@ class _selectionAlgoState extends State<selectionAlgo> {
             
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text(' Selection Sort ',textAlign: TextAlign.center ,style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.purple), ),
+              child: Text(' Selection Sort ',textAlign: TextAlign.center ,style: TextStyle(fontFamily: 'Quantico',fontSize: 30, fontWeight: FontWeight.bold, color: Colors.purple), ),
             ),
           ),
           Text(' Definition ', textAlign: TextAlign.left, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold), ),

@@ -1,12 +1,11 @@
+import 'package:howsort/Misc/bottom_navigator.dart';
 import 'package:howsort/Misc/top_bar.dart';
 import 'package:howsort/Misc/profile.dart';
 import 'package:howsort/Misc/login.dart';
 import 'package:howsort/Misc/register.dart';
 import 'package:howsort/Misc/spash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:howsort/Misc/bottom_navigator.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 
 void main() async {

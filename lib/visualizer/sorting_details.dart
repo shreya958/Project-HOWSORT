@@ -39,76 +39,96 @@ class SortDetailsScreenState extends State<SortDetailsScreen> {
     return Scaffold(
 
       key: scaffoldKey,
+      backgroundColor: Color(0xff7b8ac0),
       
 
-      body: 
-       Container(
-        color: Color(0xff7b8ac0), 
+      
+
+      body: SingleChildScrollView(
+
+
+
+       child: Container(
+      
         
 
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-
-                       SoringAlgorithmsList(
-              isDisabled: disableButtons,
-              onTap: (selected) {
-                selectedAlgorithm = selected;
-              },
-            ),
-
-                    Padding(
-
+        child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text("Numbers of elements to sort", style: TextStyle(color: newcolor2)),
-        ),
-            SliderWidgetSpeed(fullWidth: true,  max: 200, min:  10,),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Text("Milliseconds of delay between each step", style: TextStyle(color: newcolor2)),
-            ),
-            SliderWidget(fullWidth: true,  max: 1000, min:  0,),
-            SizedBox(height: 8,),
-            bottomButtons(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
 
-
- 
-            Expanded(
-              flex: 4,
-              child: ChartWidget(
-                numbers: numbers,
-                activeElements: pointers,
+                         Padding(
+                           padding: const EdgeInsets.only(top:10.0, bottom: 15.0,
+                         ),
+                          
+                           child: SoringAlgorithmsList(
+                isDisabled: disableButtons,
+                onTap: (selected) {
+                  selectedAlgorithm = selected;
+                },
               ),
-            ),
-            BottomPointer(
-              length: numbers.length,
-              pointers: pointers,
-            ),
-            Expanded(
-              child: Container(
-                padding: const EdgeInsets.all(16.0),
-                child: Center(
-                  child: Text(
-                    updateText,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
+                         ),
+
+                      Padding(
+
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Numbers of elements to sort", style: TextStyle(color: newcolor2)),
+          ),
+              SliderWidgetSpeed(fullWidth: true,  max: 200, min:  10,),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text("milliseconds of delay between each step", style: TextStyle(color: newcolor2)),
+              ),
+              SliderWidget(fullWidth: true,  max: 1500, min: 500,),
+              SizedBox(height: 8,),
+              
+               Padding(
+                 padding: const EdgeInsets.all(4.0),
+                 child: ChartWidget(
+                    numbers: numbers,
+                    activeElements: pointers,
+                  ),
+               ),
+              
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: BottomPointer(
+                  length: numbers.length,
+                  pointers: pointers,
+                ),
+              ),
+              
+                Container(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Center(
+                    child: Text(
+                      updateText,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    
                   ),
                 ),
               ),
-        
-            ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: bottomButtons(),
+              ),
+              
 
-          ],
+            ],
+          ),
         ),
          
                )
      
 
 
-  
+      )
+    
     );
   }
 

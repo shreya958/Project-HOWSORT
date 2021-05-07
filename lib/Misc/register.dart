@@ -70,10 +70,26 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          centerTitle: true,
+        elevation: 22,
           backgroundColor: newcolor1,
-          title: Text("HowSort", textAlign: TextAlign.center, style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color:Colors.white ),),
-        ),
+          title: Center(
+child: Row(mainAxisAlignment: MainAxisAlignment.center,
+
+children: [
+ 
+     Image.asset("asset/howsort - logo.png",fit: BoxFit.contain,height: 60,),
+  Container(child: Text("owSort",textAlign: TextAlign.center, style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color:Colors.white, fontFamily: 'Yatra_One' )), ),
+  
+], 
+),
+),
+shadowColor: Colors.pinkAccent,
+brightness: Brightness.dark,
+shape: RoundedRectangleBorder(
+  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50), bottomRight: Radius.circular(50),),
+ 
+),
+),
         body: Container(
 
             padding: const EdgeInsets.all(20.0),

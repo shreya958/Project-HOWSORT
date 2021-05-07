@@ -34,10 +34,12 @@ class _top_barState extends State<top_bar> {
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 30,
+                    fontSize: 40,
+                    fontFamily: 'Yatra_One',
                   ),
                 ),
                 bottom: TabBar(
+                  isScrollable: true,
                   indicatorColor: Color(0xFFD9EAF1),
                   labelColor: newcolor2,
                   unselectedLabelColor: newcolor2.withOpacity(0.6),
@@ -45,16 +47,16 @@ class _top_barState extends State<top_bar> {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8.0),
                       child: Text(
-                        "Visualizer",
-                        style: TextStyle(fontSize: 20.0, color: newcolor2),
+                        "Visualizer", textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 25.0, color: newcolor2 ,fontFamily: 'Alegreya', fontWeight: FontWeight.bold)
                         
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8.0),
                       child: Text(
-                        "Theory",
-                        style: TextStyle(fontSize: 20.0, color: newcolor2),
+                        "Theory",textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 25.0, color: newcolor2, fontFamily: 'Alegreya', fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],

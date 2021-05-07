@@ -31,11 +31,13 @@ class _tab1_barState extends State<tab1_bar> {
                      child: Padding(
                        padding: const EdgeInsets.only(top:20.0),
                        child: TabBar( 
+                         isScrollable: true,
+
                   indicatorSize: TabBarIndicatorSize.tab,
                   indicator: BubbleTabIndicator(
             indicatorHeight: 30.0,
             
-            indicatorColor: Colors.pinkAccent,
+            indicatorColor: Color(0xFF6495ED),
             tabBarIndicatorSize: TabBarIndicatorSize.tab,
             
             // Other flags
@@ -47,25 +49,25 @@ class _tab1_barState extends State<tab1_bar> {
                   unselectedLabelColor: Color(0xFF274D85).withOpacity(0.6),
                   tabs: <Widget>[
                     Padding(
-                        padding: const EdgeInsets.only(top: 16.0),
+                        padding: const EdgeInsets.only(top: 10.0),
                         child: Text(
                           "Bubble Sort",
-                          style: TextStyle(fontSize: 16.0, color: Colors.white),
+                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0, color: Colors.white, fontFamily: 'Alegreya'),
                         
                         ),
                     ),
                     Padding(
-                        padding: const EdgeInsets.only(top: 16.0),
+                        padding: const EdgeInsets.only(top: 10.0),
                         child: Text(
                           "Selection Sort",
-                          style: TextStyle(fontSize: 16.0,  color: Colors.white),
+                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,  color: Colors.white, fontFamily: 'Alegreya'),
                         ),
                     ),
                     Padding(
-                        padding: const EdgeInsets.only(top: 16.0),
+                        padding: const EdgeInsets.only(top: 10.0),
                         child: Text(
                           "Insertion Sort",
-                          style: TextStyle(fontSize: 16.0,  color: Colors.white),
+                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,  color: Colors.white, fontFamily: 'Alegreya'),
                         ),
                     ),
                   ],

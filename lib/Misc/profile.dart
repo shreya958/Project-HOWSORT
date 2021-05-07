@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:howsort/visualizer/constants.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'login.dart';
-
 
 
 
@@ -28,7 +26,7 @@ class profile extends StatelessWidget {
               appBar: AppBar(
           backgroundColor: newcolor1,
           centerTitle: true,
-          title: Text("HowSort", textAlign: TextAlign.center, style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color:Colors.white, ),),
+          title: Text("HowSort", textAlign: TextAlign.center, style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color:Colors.white, fontFamily: 'Yatra_One'),),
           
         ),
 
@@ -146,10 +144,10 @@ class profile extends StatelessWidget {
                               child:
 
                               new LinearPercentIndicator(
-                                width: MediaQuery.of(context).size.width - 110,
+                                width: MediaQuery.of(context).size.width - 100,
                                 animation: true,
                                 animationDuration: 1000,
-                                lineHeight: 20.0,
+                                lineHeight: 15.0,
                                 leading: new Text("Bubble Sort"),
 
                                 percent: 0.4,
@@ -160,14 +158,14 @@ class profile extends StatelessWidget {
                             ),
                             Padding(
 
-                              padding: EdgeInsets.all(15.0),
+                              padding: EdgeInsets.all(10.0),
                               child:
 
                               new LinearPercentIndicator(
-                                width: MediaQuery.of(context).size.width - 110,
+                                width: MediaQuery.of(context).size.width - 100,
                                 animation: true,
                                 animationDuration: 1000,
-                                lineHeight: 20.0,
+                                lineHeight: 15.0,
                                 leading: new Text("Selection sort"),
 
                                 percent: 0.8,

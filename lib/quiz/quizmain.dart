@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:howsort/visualizer/constants.dart';
+import 'package:howsort/Misc/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
   
 
 import 'resulequiz.dart';
 import 'quizclass.dart';
+
+
     
 class MyAppQuiz extends StatefulWidget {
   @override
@@ -68,6 +72,7 @@ class _MyAppQuizState extends State<MyAppQuiz> {
   
   var _questionIndex = 0;
   var _totalScore = 0;
+ 
   
   void _resetQuiz() {
     setState(() {
@@ -89,15 +94,24 @@ class _MyAppQuizState extends State<MyAppQuiz> {
       print('No more questions!');
     }
   }
-  
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: newcolor1,
           centerTitle: true,
-          title: Text('HowSort'),
-          backgroundColor: newcolor1
+          title:  Text(
+                  "HowSort",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40,
+                    fontFamily: 'Yatra_One',
+                  ),
+                ),
         ),
         body: SingleChildScrollView(
         child: Column(
@@ -107,7 +121,7 @@ class _MyAppQuizState extends State<MyAppQuiz> {
             
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text(' Quiz ',textAlign: TextAlign.center ,style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.purple), ),
+              child: Text(' Quiz ',textAlign: TextAlign.center ,style: TextStyle(fontFamily: 'Yatra_One',fontSize: 30, fontWeight: FontWeight.bold, color: Colors.purple), ),
             ),
           ),
         Padding(

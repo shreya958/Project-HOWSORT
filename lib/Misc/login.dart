@@ -14,6 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
   TextEditingController emailInputController;
   TextEditingController pwdInputController;
+ 
 
   @override
   initState() {
@@ -100,11 +101,26 @@ Future<void> _pwdDialog() async {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          elevation: 22,
           backgroundColor: newcolor1,
-          centerTitle: true,
-          title: Text("HowSort", textAlign: TextAlign.center, style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color:Colors.white, ),),
-          
-        ),
+          title: Center(
+child: Row(mainAxisAlignment: MainAxisAlignment.center,
+
+children: [
+ 
+     Image.asset("asset/howsort - logo.png",fit: BoxFit.contain,height: 60,),
+  Container(child: Text("owSort",textAlign: TextAlign.center, style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color:Colors.white, fontFamily: 'Yatra_One' )), ),
+  
+], 
+),
+),
+shadowColor: Colors.pinkAccent,
+brightness: Brightness.dark,
+shape: RoundedRectangleBorder(
+  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50), bottomRight: Radius.circular(50),),
+ 
+),
+),
         body: Container(
           alignment: Alignment.center,
             padding: const EdgeInsets.all(20.0),
@@ -165,6 +181,7 @@ Future<void> _pwdDialog() async {
                               if(usercredential.user != null)
                               {
                                 Navigator.of(context).pushNamedAndRemoveUntil("/bottomnav",(Route<dynamic> route)=> false);
+                               
                               }
                             }
                             on FirebaseAuthException catch (e) {
@@ -185,13 +202,11 @@ Future<void> _pwdDialog() async {
 
                         },
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top:8.0),
-                        child: Container(
+                     Container(
                           child:
                         Text("Don't have an account yet?"),
                         ),
-                      ),
+                      
                     Container(
                       child: Padding(
                         padding: const EdgeInsets.only(bottom:8.0),
@@ -203,17 +218,17 @@ Future<void> _pwdDialog() async {
                           ),
                       ),
                     ),
-                    //Container(
-                      //child: Padding(
-                        //padding: const EdgeInsets.only(bottom:8.0),
-                        //child: new TextButton(
-                            //child: Text("Skip Login"),
-                            //onPressed: () {
-                              //Navigator.of(context).pushNamed("/bottomnav");
-                           // },
-                         // ),
-                     // ),
-                  //  ),
+                  Container(
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom:8.0),
+                        child: new TextButton(
+                            child: Text("Skip Login"),
+                            onPressed: () {
+                              Navigator.of(context).pushNamed("/bottomnav");
+                            },
+                          ),
+                      ),
+                    ),
                     ],
                   ),
                 ))));

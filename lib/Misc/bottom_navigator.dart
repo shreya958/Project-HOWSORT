@@ -77,7 +77,7 @@ class _Bottom_NavigatorState extends State<Bottom_Navigator> {
           currentIndex: _selectedIndex,
             unselectedItemColor: Colors.white,
           selectedItemColor: Color(0xFFF46188),
-          backgroundColor: Color(0xFF491D7F),
+          backgroundColor: Color(0xFF000080),
           onTap: _onItemTapped,
         ),
 

@@ -132,7 +132,7 @@ class _bubbleAlgoState extends State<bubbleAlgo> {
             
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text(' Bubble Sort ',textAlign: TextAlign.center ,style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.purple), ),
+              child: Text(' Bubble Sort ',textAlign: TextAlign.center ,style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.purple, fontFamily: 'Quantico'), ),
             ),
           ),
           Text(' Definition ', textAlign: TextAlign.left, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold), ),
