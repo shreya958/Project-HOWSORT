@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:howsort/Misc/login.dart';
 import 'package:howsort/visualizer/constants.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 
@@ -12,8 +14,24 @@ import 'package:percent_indicator/percent_indicator.dart';
 class profile extends StatelessWidget {
   bool isEditable  =false;
   String title = "password";
+  String fname="demo",lname="demo",email="joey.food@swiggy.com";
   Color p = const Color(0xFFF46188);
   Color b = const Color(0xFF491D7F);
+  CollectionReference users = FirebaseFirestore.instance.collection("users");
+
+
+  Future<void> readdata() async {
+
+   String uid = FirebaseAuth.instance.currentUser.uid.toString();
+
+    users.doc(uid).get().then((value) => {
+      fname = value.data()["fname"],
+      lname = value.data()["lname"],
+      email = value.data()["email"],});
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -22,6 +40,7 @@ class profile extends StatelessWidget {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    readdata();
     return Scaffold(
               appBar: AppBar(
           backgroundColor: newcolor1,
@@ -59,9 +78,9 @@ class profile extends StatelessWidget {
                             )),
                         new Column(
                           children: [
-                            new Text("JOEY ",
+                            new Text(fname,
                                 textScaleFactor: 1.5,style:TextStyle(fontWeight: FontWeight.bold)),
-                            new Text("TRIBIANNI",textScaleFactor: 1.5,style:TextStyle(fontWeight: FontWeight.bold))
+                            new Text(lname,textScaleFactor: 1.5,style:TextStyle(fontWeight: FontWeight.bold))
                           ],
                         ),
                         new IconButton(icon:Icon(Icons.edit), onPressed: null)
@@ -83,8 +102,9 @@ class profile extends StatelessWidget {
                           padding: EdgeInsets.only(left:35.0,top:10.0,bottom:9.0,right:35.0),
                           child: new TextField(
 
-                            controller: TextEditingController()..text = "joey.food@swiggy.com",
+                            readOnly: true,
 
+                            controller: TextEditingController()..text= email,
                             decoration: InputDecoration(
                               fillColor: Colors.pink[200],
                               filled: true,
@@ -104,6 +124,7 @@ class profile extends StatelessWidget {
                         new Container(
                           padding: EdgeInsets.only(left:35.0,top:10.0,bottom:9.0,right:35.0),
                           child:TextField(
+                            readOnly: true,
                             controller: TextEditingController()..text = title,
                             obscureText: true,
                             decoration: InputDecoration(
@@ -125,7 +146,7 @@ class profile extends StatelessWidget {
                         )
                       ],
                     ),
-                    new Column(
+               /*     new Column(
                       children: [
                         new Container(
                           padding: EdgeInsets.only(top:13.0,left:20.0,bottom: 10.0),
@@ -309,7 +330,7 @@ class profile extends StatelessWidget {
 
                         )),
 
-
+*/
                     new Row(
 
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -320,8 +341,9 @@ class profile extends StatelessWidget {
                         padding: const EdgeInsets.only(bottom:8.0),
                         child: new TextButton(
                             child: Text("Logout"),
-                            onPressed: () {
-                              Navigator.of(context).pushNamed("/login");
+                            onPressed: () async{
+                              await FirebaseAuth.instance.signOut();
+                              Navigator.of(context).pushNamedAndRemoveUntil("/login",(Route<dynamic> route)=> false);
                             },
                           ),
                      ),
@@ -341,3 +363,4 @@ class profile extends StatelessWidget {
 
   }
 }
+

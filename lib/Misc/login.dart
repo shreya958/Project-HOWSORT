@@ -21,6 +21,20 @@ class _LoginPageState extends State<LoginPage> {
     emailInputController = new TextEditingController();
     pwdInputController = new TextEditingController();
     super.initState();
+  /*  if(FirebaseAuth.instance.currentUser != null){
+
+      Navigator.of(context).pushNamedAndRemoveUntil("/bottomnav",(Route<dynamic> route)=> false);
+    }*/
+  /*  FirebaseAuth.instance
+        .authStateChanges()
+        .listen((User user) {
+      if (user.uid == null) {
+        print('User is currently signed out!');
+      } else {
+        print('User is signed in!');
+        Navigator.of(context).pushNamedAndRemoveUntil("/bottomnav",(Route<dynamic> route)=> false);
+      }
+    });*/
   }
 
   String emailValidator(String value) {

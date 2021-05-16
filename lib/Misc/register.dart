@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -54,16 +56,18 @@ class _RegisterPageState extends State<RegisterPage> {
     }
   }
 
-  Future<void> usersetup(String fname, String lname) async {
+  Future<void> usersetup(String fname, String lname,String email) async {
     String uid = FirebaseAuth.instance.currentUser.uid.toString();
-   return users.add(
+    users.doc(uid).set(
         {
           'fname': fname,
           'lname': lname,
+          'email': email,
           'uid': uid}
     )
     .then((value) => print("User Added"))
         .catchError((error) => print("Failed to add user: $error"));
+    return;
   }
 
   @override
@@ -193,7 +197,7 @@ shape: RoundedRectangleBorder(
                                   );
                                   if(userCredential.user != null)
                                     {
-                                      usersetup(firstNameInputController.text, lastNameInputController.text);
+                                      usersetup(firstNameInputController.text, lastNameInputController.text,emailInputController.text);
                                     }
 
                                 } on FirebaseAuthException catch (e) {

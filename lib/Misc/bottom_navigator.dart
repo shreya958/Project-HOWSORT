@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:howsort/Misc/login.dart';
 import 'package:howsort/Misc/profile.dart';
 import 'package:howsort/quiz/quizmain.dart';
 import'package:howsort/Misc/top_bar.dart';
-
+import 'package:howsort/Misc/authcheck.dart';
 
 
 
@@ -35,12 +37,17 @@ class _Bottom_NavigatorState extends State<Bottom_Navigator> {
     MyAppQuiz(),
     profile()
   ];
-
+  static  List<Widget> _widgetOptionsAuth = <Widget>[
+    top_bar(),
+    authcheck(),
+    authcheck()
+  ];
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
+
 
 
   @override
@@ -56,7 +63,7 @@ class _Bottom_NavigatorState extends State<Bottom_Navigator> {
        body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-          child: _widgetOptions.elementAt(_selectedIndex),
+          child: FirebaseAuth.instance.currentUser == null?_widgetOptionsAuth.elementAt(_selectedIndex): _widgetOptions.elementAt(_selectedIndex),
       ),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
@@ -78,7 +85,7 @@ class _Bottom_NavigatorState extends State<Bottom_Navigator> {
             unselectedItemColor: Colors.white,
           selectedItemColor: Color(0xFFF46188),
           backgroundColor: Color(0xFF000080),
-          onTap: _onItemTapped,
+          onTap:  _onItemTapped,
         ),
 
 

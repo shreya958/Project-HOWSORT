@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'resulequiz.dart';
 import 'quizclass.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 
     
@@ -15,6 +16,19 @@ class MyAppQuiz extends StatefulWidget {
 }
 
 class _MyAppQuizState extends State<MyAppQuiz> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+   if( FirebaseAuth.instance.currentUser == null)
+     {
+       /*Navigator.push(context, MaterialPageRoute(
+         builder: (context) => LoginPage(),
+       ),   );
+       Navigator.of(context).popAndPushNamed("/login");*/
+     }
+  }
   final _questions = const [
     {
       'questionText': 'Q1. What is the worst case complexity of bubble sort?',
@@ -94,10 +108,37 @@ class _MyAppQuizState extends State<MyAppQuiz> {
       print('No more questions!');
     }
   }
-
+  Future<void> _authDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Login Error'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('This email is not registered'),
+                Text('Please try with another email ID'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).popAndPushNamed("/login");
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
